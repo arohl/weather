@@ -5,7 +5,7 @@ from datetime import datetime
 from dateutil.parser import parse
 
 def convert_date(date):
-    return (parse(date).astimezone())
+  return (parse(date).astimezone())
 
 my_location = "perth+wa"
 sum = summary.Summary(search=my_location)
@@ -27,7 +27,7 @@ print ("Current: " + str(value) + unit + "C" + " | color=black")
 print ("Feels like: " + str(value) + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["temp_now"]
 if label == "Max":
-    print ("Maximum: " + str(value) + unit + "C" + " | color=black")
+  print ("Maximum: " + str(value) + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["precis"]
 print ("Conditions: " + value[:-1] + " | color=black")
 
@@ -46,16 +46,18 @@ print("---")
 print (location["name"] + " Forecast | color=royalblue")
 forecast.pop(0)
 for f in forecast:
-    if f["temp_min"] is None:
-        temp_min = "--"
-    else:
-        temp_min = f["temp_min"]
+	if f["temp_min"] is None:
+		temp_min = "--"
+	else:
+		temp_min = f["temp_min"]
 
-    if f["temp_max"] is None:
-        temp_max = "--"
-    else:
-        temp_max = f["temp_max"]
-    date = convert_date(f["date"])
-    formatted_date = date.strftime("%A")
-    print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
-    print("--" + f["extended_text"][:-1] + " | size=12 color=black")
+	if f["temp_max"] is None:
+		temp_max = "--"
+	else:
+		temp_max = f["temp_max"]
+   
+	date = convert_date(f["date"])
+	formatted_date = date.strftime("%A")
+	print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
+	print("--" + f["extended_text"][:-1] + " | size=12 color=black")
+
