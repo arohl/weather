@@ -19,12 +19,14 @@ if location is None:
 sum_data = sum.summary()
 (label, value, unit) = sum_data["current_temp"]
 degree = unit
-print(str(value)+ unit + "C")
+temp = '{:.1f}'.format(value)
+print(temp + unit + "C")
 print("---")
 print (location["name"] + " Observations | color=royalblue")
-print ("Current: " + str(value) + unit + "C" + " | color=black")
+print ("Current: " + temp + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["temp_feels_like"]
-print ("Feels like: " + str(value) + unit + "C" + " | color=black")
+feel_temp = '{:.1f}'.format(value)
+print ("Feels like: " + feel_temp + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["temp_now"]
 if label == "Max":
   print ("Maximum: " + str(value) + unit + "C" + " | color=black")
