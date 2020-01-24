@@ -30,6 +30,9 @@ print ("Feels like: " + feel_temp + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["temp_now"]
 if label == "Max":
   print ("Maximum: " + str(value) + unit + "C" + " | color=black")
+(label, value, unit) = sum_data["temp_later"]
+if label == "Max":
+  print ("Maximum: " + str(value) + unit + "C" + " | color=black")
 (label, value, unit) = sum_data["precis"]
 print ("Conditions: " + value[:-1] + " | color=black")
 
