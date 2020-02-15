@@ -65,4 +65,8 @@ for f in forecast:
 	formatted_date = date.strftime("%A")
 	print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
 	print("--" + f["extended_text"][:-1] + " | size=12 color=black")
-
+	
+print("---")
+print("Rain Radar | color=royalblue")
+print(location["name"] + " | color=black href=http://www.bom.gov.au/products/IDR703.loop.shtml#skip")
+print("National | color=black href=http://www.bom.gov.au/products/national_radar_sat.loop.shtml")
