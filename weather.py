@@ -43,8 +43,8 @@ print("Humidity: " + str(obs["humidity"]) + "% | color=black")
 print("Wind: " + obs["wind"]["direction"] + " @ " + str(obs["wind"]["speed_kilometre"]) + " kmh | color=black" )
 sunrise = forecast[0]["astronomical"]["sunrise_time"]
 sunset = forecast[0]["astronomical"]["sunset_time"]
-print("Sunrise: " + convert_date(sunrise).strftime("%-I" + ":" + "%-M %p") + " | color=black")
-print("Sunset: " + convert_date(sunset).strftime("%-I" + ":" + "%-M %p") + " | color=black")
+print("Sunrise: " + convert_date(sunrise).strftime("%-I" + ":" + "%M %p") + " | color=black")
+print("Sunset: " + convert_date(sunset).strftime("%-I" + ":" + "%M %p") + " | color=black")
 if (obs["rain_since_9am"] > 0):
 	print("Rain since 9 am: " + str(obs["rain_since_9am"]) + " mm | color=black")
 print("---")
