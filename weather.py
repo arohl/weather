@@ -21,7 +21,7 @@ sum_data = sum.summary()
 degree = unit
 temp = '{:.1f}'.format(value)
 print(temp + unit + "C")
-time_now = datetime.now().strftime('%I:%M %p')
+time_now = datetime.now().strftime('%-I:%M %p')
 print("---")
 print (location["name"] + " Observations @ " + time_now + " | color=royalblue")
 print ("Current: " + temp + unit + "C" + " | color=black")
@@ -64,7 +64,8 @@ for f in forecast:
    
 	date = convert_date(f["date"])
 	formatted_date = date.strftime("%A")
-	print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
+	if f['short_text'] is not None:
+	  print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
 	if f['extended_text'] is not None:
 		print("--" + f["extended_text"][:-1] + " | size=12 color=black")
 	
