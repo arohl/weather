@@ -17,37 +17,34 @@ if location is None:
 	print("Location not found: " + my_location)
 	sys.exit()
 sum_data = sum.summary()
-(label, value, unit) = sum_data["current_temp"]
+(label, temp, unit) = sum_data["current_temp"]
 degree = unit
-temp = '{:.1f}'.format(value)
-print(temp + unit + "C")
+print("%.1f%sC" % (temp, unit))
 time_now = datetime.now().strftime('%-I:%M %p')
 print("---")
-print (location["name"] + " Observations @ " + time_now + " | color=royalblue")
-print ("Current: " + temp + unit + "C" + " | color=black")
-(label, value, unit) = sum_data["temp_feels_like"]
-feel_temp = '{:.1f}'.format(value)
-print ("Feels like: " + feel_temp + unit + "C" + " | color=black")
+print ("%s Observations @ %s | color=royalblue" %(location["name"], time_now))
+print ("Current: %.1f%sC | color=black" % (temp, unit))
+(label, feel_temp, unit) = sum_data["temp_feels_like"]
+print ("Feels like: %.1f%sC | color=black" % (feel_temp, unit))
 (label, value, unit) = sum_data["temp_now"]
 if label == "Max":
-  print ("Maximum: " + str(value) + unit + "C" + " | color=black")
+  print ("Maximum: %d%sC | color=black" % (value, unit))
 (label, value, unit) = sum_data["temp_later"]
 if label == "Max":
-  print ("Maximum: " + str(value) + unit + "C" + " | color=black")
+  print ("Maximum: %d%sC | color=black" % (value, unit))
 (label, value, unit) = sum_data["precis"]
-print ("Conditions: " + value[:-1] + " | color=black")
-
+print ("Conditions: %s | color=black" % (value[:-1]))
 weather = api.WeatherApi(search=my_location, debug=0)
 obs = weather.observations()
 forecast = weather.forecasts_daily()
-print("Humidity: " + str(obs["humidity"]) + "% | color=black")
-print("Wind: " + obs["wind"]["direction"] + " @ " + str(obs["wind"]["speed_kilometre"]) + " kmh | color=black" )
+print("Humidity: %d%% | color=black" % (obs["humidity"]))
+print("Wind: %s @ %d kmh | color=black" % (obs["wind"]["direction"], obs["wind"]["speed_kilometre"]))
 sunrise = forecast[0]["astronomical"]["sunrise_time"]
 sunset = forecast[0]["astronomical"]["sunset_time"]
-print("Sunrise: " + convert_date(sunrise).strftime("%-I" + ":" + "%M %p") + " | color=black")
-print("Sunset: " + convert_date(sunset).strftime("%-I" + ":" + "%M %p") + " | color=black")
+print("Sunrise: %s | color=black" % (convert_date(sunrise).strftime("%-I" + ":" + "%M %p")))
+print("Sunset: %s | color=black" % (convert_date(sunset).strftime("%-I" + ":" + "%M %p")))
 if (obs["rain_since_9am"] > 0):
-	print("Rain since 9 am: " + str(obs["rain_since_9am"]) + " mm | color=black")
+  print("Rain since 9 am: %d mm | color=black" %(obs["rain_since_9am"]))
 print("---")
 print (location["name"] + " Forecast | color=royalblue")
 forecast.pop(0)
@@ -65,7 +62,7 @@ for f in forecast:
 	date = convert_date(f["date"])
 	formatted_date = date.strftime("%A")
 	if f['short_text'] is not None:
-	  print(formatted_date + " Min: " + str(temp_min) + degree + "C, Max: " + str(temp_max)  + degree + "C, " + f["short_text"][:-1] + " | color=black")
+	  print("%s Min: %d%sC, Max: %d%sC, %s | color=black" % (formatted_date, temp_min, degree, temp_max, degree, f["short_text"][:-1]))
 	if f['extended_text'] is not None:
 		print("--" + f["extended_text"][:-1] + " | size=12 color=black")
 	
