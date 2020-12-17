@@ -1,4 +1,12 @@
 #!/Users/andrew/anaconda3/bin/python3
+
+# <bitbar.title>Perth Weather</bitbar.title>
+# <bitbar.version>v0.9</bitbar.version>
+# <bitbar.author>Andrew Rohl</bitbar.author>
+# <bitbar.author.github>arohl</bitbar.author.github>
+# <bitbar.desc>Provides current temperature and 6 day forecast for Perth</bitbar.desc>
+# <bitbar.dependencies>python3, weather_au</bitbar.dependencies>
+
 import sys
 from weather_au import summary, api
 from datetime import datetime
