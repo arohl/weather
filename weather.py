@@ -1,4 +1,4 @@
-#!/Users/andrew/anaconda3/bin/python3
+#!/usr/bin/env -P/opt/local/bin/:/Users/andrew/opt/anaconda3/bin python3
 
 # <bitbar.title>Perth Weather</bitbar.title>
 # <bitbar.version>v0.9</bitbar.version>
