@@ -15,7 +15,7 @@ from dateutil.parser import parse
 def convert_date(date):
   return (parse(date).astimezone())
 
-my_location = 'kensington+wa'
+my_location = 'perth'
 sum = summary.Summary(search=my_location)
 location = sum.location
 # check if the search produced a result (other methods will also return None if the search fails).
