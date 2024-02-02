@@ -1,10 +1,10 @@
 #!/usr/bin/env -P/Users/andrew/.asdf/shims/:/Users/180341c/.asdf/shims/:/opt/local/bin/:/Users/andrew/opt/anaconda3/bin:/Users/andrew/anaconda3/bin:/Users/180341c/opt/anaconda3/bin/    python3
 
-# <bitbar.title>Perth Weather</bitbar.title>
-# <bitbar.version>v0.9</bitbar.version>
+# <bitbar.title>Kensington Weather</bitbar.title>
+# <bitbar.version>v0.91</bitbar.version>
 # <bitbar.author>Andrew Rohl</bitbar.author>
 # <bitbar.author.github>arohl</bitbar.author.github>
-# <bitbar.desc>Provides current temperature and 6 day forecast for Perth</bitbar.desc>
+# <bitbar.desc>Provides current temperature and 6 day forecast for Kensington</bitbar.desc>
 # <bitbar.dependencies>python3, weather_au</bitbar.dependencies>
 
 import sys
@@ -15,7 +15,7 @@ from dateutil.parser import parse
 def convert_date(date):
   return (parse(date).astimezone())
 
-my_location = 'perth'
+my_location = '6151'
 sum = summary.Summary(search=my_location)
 location = sum.location
 # check if the search produced a result (other methods will also return None if the search fails).
